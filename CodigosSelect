@@ -1,0 +1,33 @@
+SELECT matricula, nome, cpf FROM aluno
+
+SELECT * FROM curso
+
+SELECT nome_curso FROM curso
+
+SELECT nome_curso FROM curso
+WHERE cod_curso = 1
+SELECT nome_curso FROM curso
+WHERE sigla = 'CCO'
+SELECT nome_curso FROM curso
+WHERE nome_curso = 'Ciências da Computação'
+/*FORMA ERRADA*/
+SELECT * FROM aluno, curso
+WHERE matricula = '202300008'
+
+/*FORMA CORRETA*/
+SELECT nome, nome_curso FROM aluno
+INNER JOIN aluno_curso 
+ON matricula = aluno
+INNER JOIN curso
+ON curso = cod_curso
+WHERE matricula = '202300008'
+
+/*DISCIPLINAS DO ARANHA*/
+SELECT nome, nome_disciplina FROM aluno
+INNER JOIN aluno_turma
+ON matricula = aluno
+INNER JOIN turma
+ON turma = cod_turma
+INNER JOIN disciplina
+ON disciplina = cod_disciplina
+WHERE matricula = '202300008'
